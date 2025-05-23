@@ -1,0 +1,8 @@
+qPCR Measurements for 4
+========================================
+Standard Curve Slope: -3.7345
+Standard Curve Y-intercept: 42.5908
+R² value: 0.9932
+Efficiency: 85.26%
+MSE: 0.382289
+RMSE: 0.618295
