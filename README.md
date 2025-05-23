@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # qPCR_pipeline
 
 This github repo contains the following:
