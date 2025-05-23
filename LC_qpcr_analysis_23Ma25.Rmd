@@ -1,0 +1,53 @@
+---
+title: "LC_qpcr_analysis_23Ma25"
+output: html_document
+date: "2025-05-23"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Libraries*
+```{r}
+library(tidyverse)
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(RColorBrewer)
+```
+
+*File Read-Ins*
+```{r}
+getwd()
+
+# list of clean CSV files 
+csv_files <- list.files(path = "cleaned_qpcr_output", pattern = "\\.csv$", full.names = TRUE)
+
+# read and combine all CSVs into one data frame per gene
+gene_names <- sub("^(.*?)_.*\\.csv$", "\\1", basename(csv_files))
+
+gene_dfs <- setNames(
+  lapply(csv_files, read_csv),
+  gene_names
+)
+
+unique_genes <- unique(names(gene_dfs))
+
+combined_gene_dfs <- lapply(unique_genes, function(gene) {
+  dplyr::bind_rows(gene_dfs[names(gene_dfs) == gene])
+})
+
+names(combined_gene_dfs) <- unique_genes
+
+combined_gene_dfs$`16S`
+
+```
+
+*Merge Gene Files*
+```{r}
+
+
+
+
+```
